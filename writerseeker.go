@@ -12,6 +12,11 @@ type WriterSeeker struct {
 	pos int
 }
 
+// Bytes returns buf
+func (ws *WriterSeeker) Bytes() []byte {
+	return ws.buf
+}
+
 // Write writes to the buffer of this WriterSeeker instance
 func (ws *WriterSeeker) Write(p []byte) (n int, err error) {
 	minCap := ws.pos + len(p)
